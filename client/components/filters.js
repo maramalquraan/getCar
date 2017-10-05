@@ -26,18 +26,18 @@ angular.module('get-car')
     // chosing the minimum range ..
     $scope.min = function(){
       $scope.rangeMin = 0;
-      $scope.rangeMax = 5000;
+      $scope.rangeMax = 10000;
     };
 
     // chosing the middle range .. 
     $scope.mid = function(){
-      $scope.rangeMin = 5000;
-      $scope.rangeMax = 10000;
+      $scope.rangeMin = 10000;
+      $scope.rangeMax = 30000;
     };
 
     // choosing the highest range ..
     $scope.max = function(){
-      $scope.rangeMin = 1000;
+      $scope.rangeMin = 30000;
       $scope.rangeMax = 1000000;
     };
 	},

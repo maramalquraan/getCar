@@ -97,6 +97,7 @@ app.get('/logout', function(req, res) {
 // Our sign up post handler ..
 app.post("/signUp",function(req,res){
 	// hashing the password ..
+	userlogged.push(req.body.name, req.body.numberPhon)
 	bcrypt.hash(req.body.password, null, null, function(err, hash){
 		// saving private {{req.body.name}} ..
 		var userr = new user ({
