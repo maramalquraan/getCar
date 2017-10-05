@@ -1,6 +1,6 @@
 angular.module('get-car')
 
-// Our treasure hunt ..
+// Our information ... 
 .component('aboet', {
 	templateUrl: `
     client/templates/about.html

@@ -1,42 +1,42 @@
 <div class="container">
-    <div class="col-sm-10" style="width : 600px; margin-left: 250px; margin-top: 50px;">
-      <div class="jumbotron" style="margin-top: 50px">
-        <div  class="form-group" style="margin-top:-50px">
-            <h1 style="text-align: center;"> <label>ADD CAR</label> </h1>
+  <div class="col-sm-10" style="width : 600px; margin-left: 250px; margin-top: 50px;">
+    <div class="jumbotron" style="margin-top: 50px">
+      <div  class="form-group" style="margin-top:-50px">
+        <h1 style="text-align: center;"> <label>ADD CAR</label> </h1>
+      </div>
+      <hr>
+      <form class="form-horizantal">
+        <div class="form-group input-group" >
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </span>
+          <input type="text" ng-model="type"  class="form-control" id="type" placeholder="Type Of Your Car ..." required></input>
         </div>
-        <hr>
-        <form class="form-horizantal">
-            <div class="form-group input-group" >
-              <span class="input-group-addon">
-              <span class="glyphicon glyphicon-pencil"></span>
-            </span>
-            <input type="text" ng-model="type"  class="form-control" id="type" placeholder="Type Of Your Car ..." required></input>
-          </div>
 
-          <div class="form-group input-group" >
-            <span class="input-group-addon">
+        <div class="form-group input-group" >
+          <span class="input-group-addon">
             <span class="glyphicon glyphicon-pencil"></span>
           </span>
           <input type="text" ng-model="price"  class="form-control" id="price"placeholder="Price Of Your Car ..."  required></input>
         </div>
         <div class="form-group input-group" >
           <span class="input-group-addon">
-        <span class="glyphicon glyphicon-pencil"></span>
-      </span>
-        <input type="text"    ng-model="color"     class="form-control" id="color"  placeholder="Color Of Your Car ..."required></input>
-      </div>
-      <div class="form-group input-group" >
-        <span class="input-group-addon">
-        <span class="glyphicon glyphicon-cloud-upload"></span>
-      </span>
-      <span class="btn btn-default btn-file" style="width: 412px">
-      Browse Image ....  <input type="file"   class="form-control" id="image"    placeholder="Link Of Your Image ..."  required ></input>
-</span>
+            <span class="glyphicon glyphicon-pencil"></span>
+          </span>
+          <input type="text"    ng-model="color"     class="form-control" id="color"  placeholder="Color Of Your Car ..."required></input>
+        </div>
+        <div class="form-group input-group" >
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-cloud-upload"></span>
+          </span>
+          <span class="btn btn-default btn-file" style="width: 412px">
+            Browse Image ....  <input type="file"   class="form-control" id="image"    placeholder="Link Of Your Image ..."  required ></input>
+          </span>
+        </div>
+        <div class="form-group " >
+          <button class = "btn btn-primary "type="submit"     ng-click="add()"     class="form-control"id="add" style="width: 452px"> Submit </button>
+        </div>
+      </form>
     </div>
-    <div class="form-group " >
-      <button class = "btn btn-primary "type="submit"     ng-click="add()"     class="form-control"id="add" style="width: 452px"> Submit </button>
   </div>
-        </form>
-      </div>
-    </div>
-  </div>
+</div>

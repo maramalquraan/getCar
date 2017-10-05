@@ -21,8 +21,10 @@ angular.module('get-car')
 		$scope.add;
 		$scope.about;
 		// this one is from the server logged variable.
-		// check line 53.
+		// check line 65.
 		this.loog = false;
+		// this on is for the logged in user information ..
+		// check line 66
 		this.userInfo;
 		// This function is connected with the headbar 
 		// and responsible of showing the log in template.

@@ -1,9 +1,9 @@
 <div class = "show" >
 	<show ng-repeat = "item in $ctrl.searchtt | filter: search | filter: searcch | filter: filterRange | orderBy:'':true"
-		  car = "item">
-		
-	</show>
+	car = "item">
 	
+</show>
+
 </div>
 
 <div class="filters" style="width: 250px;" ng-model = "search.$">
@@ -12,30 +12,30 @@
 	</div>
 	<br/>
 	<div style="margin-left: 23px;" ng-model = "$parent.searcch.$">
-	<h4>Filter By: </h4>
-	<h5>Type:</h5>
-	<form >
-		<input type="radio" name="type" ng-model="searcch.type" value = ''> All <br/>
-		<div ng-repeat = "item in $ctrl.searchtt | filter : color | unique: 'type' " >
-		<input type="radio" name="type" ng-model="$parent.searcch.type" value={{item.type}}> {{item.type}} <br/>
-		</div>
-	</form>
-	<br/>
-	<h5>Price:</h5>
-	<form>
+		<h4>Filter By: </h4>
+		<h5>Type:</h5>
+		<form >
+			<input type="radio" name="type" ng-model="searcch.type" value = ''> All <br/>
+			<div ng-repeat = "item in $ctrl.searchtt | filter : color | unique: 'type' " >
+				<input type="radio" name="type" ng-model="$parent.searcch.type" value={{item.type}}> {{item.type}} <br/>
+			</div>
+		</form>
+		<br/>
+		<h5>Price:</h5>
+		<form>
 
-		<input type="radio" name="price" ng-model="$parent.price" ng-click = "all()" vlaue = ""> All <br/>
-		<input type="radio" name="price" ng-model="$parent.searcch.price" ng-click = "min()" > Less than 10000$ <br/>
-		<input type="radio" name="price" ng-model="$parent.searcch.price" ng-click = "mid()"> 10000$ - 30000$ <br/>
-		<input type="radio" name="price" ng-model="$parent.searcch.price" ng-click = "max()"> More than 30000$
-	</form>
-	<br/>
-	<h5>Color:</h5>
-	<form>
-		<input type="radio" name="type" ng-model="searcch.color" value = ""> All <br/>
-		<div ng-repeat="item in $ctrl.searchtt | filter: search | filter : type | unique: 'color'">
-		<input type="radio" name="color" ng-model="$parent.searcch.color" value={{item.color}}> {{item.color}} <br/>
-		</div>
-	</form>
-</div>
+			<input type="radio" name="price" ng-model="$parent.price" ng-click = "all()" vlaue = ""> All <br/>
+			<input type="radio" name="price" ng-model="$parent.searcch.price" ng-click = "min()" > Less than 10000$ <br/>
+			<input type="radio" name="price" ng-model="$parent.searcch.price" ng-click = "mid()"> 10000$ - 30000$ <br/>
+			<input type="radio" name="price" ng-model="$parent.searcch.price" ng-click = "max()"> More than 30000$
+		</form>
+		<br/>
+		<h5>Color:</h5>
+		<form>
+			<input type="radio" name="type" ng-model="searcch.color" value = ""> All <br/>
+			<div ng-repeat="item in $ctrl.searchtt | filter: search | filter : type | unique: 'color'">
+				<input type="radio" name="color" ng-model="$parent.searcch.color" value={{item.color}}> {{item.color}} <br/>
+			</div>
+		</form>
+	</div>
 </div>
