@@ -1,0 +1,35 @@
+{
+  "name": "getcar",
+  "version": "1.0.0",
+  "description": "This application will help costumers to find their dream car.",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "express": "^4.16.1",
+    "express-fileupload": "^0.2.0",
+    "express-session": "^1.15.6",
+    "express-sessions": "^1.0.6",
+    "live-server": "^1.2.0",
+    "mongoose": "^4.11.14",
+    "multer": "^1.3.0",
+    "nodemon": "^1.12.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElectricFiras/getCar.git"
+  },
+  "keywords": [
+    "car"
+  ],
+  "author": "TechJungle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElectricFiras/getCar/issues"
+  },
+  "homepage": "https://github.com/ElectricFiras/getCar#readme"
+}

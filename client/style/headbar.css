@@ -1,0 +1,27 @@
+#header {
+	position: relative;
+	height: 50px;
+	width: 100%;
+}
+
+.nav {
+	float: right;
+   position: relative;
+}
+
+#menu {
+	float: : right;
+	position: absolute;
+	right: 50px;
+	top: 20px;
+}
+
+#logo {
+	position: absolute;
+	left : 50px;
+	top: -17px;
+}
+
+a {
+    text-decoration: none !important;
+}

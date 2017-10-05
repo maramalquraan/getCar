@@ -1,0 +1,45 @@
+.carousel-inner img {
+    /*-webkit-filter: grayscale(90%);*/
+    filter: blur(90%); /* make all photos black and white */
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+}
+
+.carousel-caption h3 {
+    color: #fff !important;
+}
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+}
+.bg-1 {
+    background: #008080;
+    color: #bdbdbd;
+    height: 400px;
+}
+.bg-1 h3 {color: #fff;}
+.bg-1 p {font-style: italic;
+font-size: 20px}
+
+#comp {
+  background-color: #000080; /* Orange */
+    color: #ffffff;
+    height: 400px;
+  }
+
+  #qo {
+    background-color: #20b2aa; /* Orange */
+      color: #ffffff;
+      height: 400px;
+      font-style: italic;
+    }
+    #hh{
+      font-size: 80px;
+      margin-top: 20px
+    }
+    #bb{
+      font-size: 40px;
+      margin-top: 70px
+    }
