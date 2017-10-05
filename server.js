@@ -10,9 +10,10 @@ var Promise = require('bluebird');
 var app = express();
 var session = require("express-session");
 
-
+// those two lines are for payload size so you can upload large files ...
 app.use(bodyParser.json({limit: '5mb'}));
 app.use(bodyParser.urlencoded({limit: '5mb'}));
+/////
 app.use(session({secret : "session"}));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
