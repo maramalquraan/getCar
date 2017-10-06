@@ -24,7 +24,7 @@ app.use(express.static(__dirname + '/'));
 var logged = false;
 
 // This variable will hold the information of the logged in user.
-// check line 110 ..
+// check line 111 ..
 var userlogged = []
 
 // This get will start at the beginning to bring all the data from the cars database
@@ -108,7 +108,7 @@ app.post("/signUp",function(req,res){
 			password: hash,
 			phone: req.body.numberPhon,
 			email: req.body.email });
-// sorry, it's line 125 .
+// sorry, it's line 126 .
 		userr.save(function(err, userr){
 			if (err){
 				console.log(err);
@@ -123,7 +123,7 @@ app.post("/signUp",function(req,res){
 // Our add new car handler ..
 app.post("/add",function(req,res){
 	// saving the new car ..
-	// oops!, check line 54 maybe ? ¯\_(ツ)_/¯
+	// oops!, check line 55 maybe ? ¯\_(ツ)_/¯
 	var carr = new car ({
 		username: req.body.username,
 		phone: req.body.phone,

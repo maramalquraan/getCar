@@ -1,6 +1,28 @@
 // BEHOLD !!! ... the main module of this app in all of its glory.
 angular.module('get-car', ['angular.filter']);
 
+
+// Our app's map : 
+/*
+                            The head bar
+                          |-- 'headbar'
+                          |
+                          | The side bar    The center of the page
+                          |-- 'filters' ---- 'show'
+                          |
+                          | The log in page
+App Name  Main Component  |-- 'logIns'
+						  |
+'get-car' ---- 'app' -----|
+						  | The sign up page
+                          |-- 'signUp'
+                          |
+                          | The car submitting page
+                          |-- 'add'
+                          |
+                          | The about page
+                          |-- 'aboet'
+*/
 /*
                _       _                 _   
               | |     | |               | |  
