@@ -4,10 +4,15 @@ angular.module('get-car')
 
 .component('show', {
   bindings: {
-  car: "<"
+  car: "<",
+  userInfo :"<"
   },
 
+
   controller: function($http,$scope){
+      $scope.arrayUser=[];
+      $scope.arrayComment=[];
+
     $scope.deleteCar=function(id){
       // console.log('hiiiiii' , id)
       $http({
@@ -19,10 +24,27 @@ angular.module('get-car')
         console.log(res);
       })
     }
+$scope.addCommentbtn=function(username){
+      //console.log('hiiiiii' , id)
+      //console.log($scope.comment)
+      $http({
+        method:"POST",
+        url: "/addComment",
+        data :JSON.stringify({ comment:$scope.comment,username:username })
+      })
+      .then(function succssesCallback(res){
+        $scope.arrayUser.push(res.data.username);
+        $scope.arrayComment.push(res.data.comment);
+        
+      
+        //console.log($scope.array);
+      })
+    }
+  },
+    
 
-   },
-  templateUrl: `client/templates/show.html
-  `
+   
+  templateUrl: `client/templates/show.html`
 });
 
 /*

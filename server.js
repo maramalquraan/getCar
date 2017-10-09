@@ -154,6 +154,22 @@ app.post("/add",function(req,res){
 	});
 	res.end();
 });
+app.post("/addComment",function(req,res){
+	var username = req.body.username;
+    var comment = req.body.comment;
+    var comments = {
+       username:username,
+        comment:comment
+    };
+    var newcomment = new car(comments);
+    newcomment.save()
+    .then(item=>{
+        res.send(newcomment)
+    })
+    .catch(err => {
+        res.status(400).send("unable to save to database")
+    })
+})
 
 // Our wormHole ..
 var port = process.env.PORT || 5000;

@@ -9,8 +9,8 @@
                        `---'                     `---'
 */
 var mongoose = require("mongoose");
-var mongoURI = "mongodb://localHost/techJungle";
-// var mongoURI = "mongodb://techJungle:techJungle5@ds159344.mlab.com:59344/get-car";
+//var mongoURI = "mongodb://localHost/techJungle";
+ var mongoURI = "mongodb://techJungle:techJungle5@ds159344.mlab.com:59344/get-car";
 var db = mongoose.connection;
 var Schema = mongoose.Schema;
 // car schema
@@ -21,7 +21,9 @@ var carSchema = new Schema({
     type : {type: String, uppercase: true},
     color: {type: String, uppercase: true},
     price: Number,
-    option : String
+    option : String,
+    comment:String
+
 });
 var carModel = mongoose.model('carModel',carSchema);
 
