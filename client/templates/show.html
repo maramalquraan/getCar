@@ -1,6 +1,7 @@
 <div class = "show" class="container">
   <img ng-src="{{$ctrl.car.image}}" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{$ctrl.car._id}}" style="width: 350px; height: 200px; background-color: white;">
   <br/>
+  <button type="button" ng-click="deleteCar($ctrl.car._id)">Remove</button>
 
   <div class="modal fade" id={{$ctrl.car._id}} role="dialog">
     <div class="modal-dialog">
