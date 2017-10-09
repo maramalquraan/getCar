@@ -144,7 +144,8 @@ app.post("/add",function(req,res){
 		type: req.body.type,
 		color: req.body.color,
 		price: req.body.price,
-		image: req.body.image
+		image: req.body.image,
+		option :req.body.option
 	});
   carr.save(function(err, carr){
 		if (err){
