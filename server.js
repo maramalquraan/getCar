@@ -37,6 +37,20 @@ app.get('/data',function(req, res){
   });
 });
 
+app.post('/deleteCar' , function (req , res) {
+	/* body... */
+	console.log(req.body.id)
+	car.findOneAndRemove({_id : req.body.id},function (error) {
+		/* body... */
+		// console.log(_id)
+		if(error){
+			res.send(error)
+		}
+		else{
+			res.send('item Deleted')
+		}
+	})
+})
 // The logIn post handling ..
 app.post("/logIn",function(req,res){
 	// Looking for the username ..
@@ -130,7 +144,8 @@ app.post("/add",function(req,res){
 		type: req.body.type,
 		color: req.body.color,
 		price: req.body.price,
-		image: req.body.image
+		image: req.body.image,
+		option :req.body.option
 	});
   carr.save(function(err, carr){
 		if (err){

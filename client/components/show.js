@@ -4,12 +4,25 @@ angular.module('get-car')
 
 .component('show', {
   bindings: {
-	car: "<"
+  car: "<"
   },
 
-	templateUrl: `
-	client/templates/show.html
-	`
+  controller: function($http,$scope){
+    $scope.deleteCar=function(id){
+      // console.log('hiiiiii' , id)
+      $http({
+        method:"POST",
+        url: "/deleteCar",
+        data :JSON.stringify({ id : id})
+      })
+      .then(function succssesCallback(res){
+        console.log(res);
+      })
+    }
+
+   },
+  templateUrl: `client/templates/show.html
+  `
 });
 
 /*
