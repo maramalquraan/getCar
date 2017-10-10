@@ -14,8 +14,10 @@
 
 
 var mongoose = require("mongoose");
+
 var mongoURI = "mongodb://localHost/techJungle";
 // var mongoURI = "mongodb://techJungle:techJungle5@ds159344.mlab.com:59344/get-car";
+
 var db = mongoose.connection;
 var Schema = mongoose.Schema;
 // car schema

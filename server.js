@@ -36,9 +36,24 @@ app.get('/data',function(req, res){
 	data.push(logged ,userlogged);
 	// Sending data to the front end.
 	res.json(data);
+	// res.send(data)
   });
 });
 
+app.post('/deleteCar' , function (req , res) {
+	/* body... */
+	console.log(req.body.id)
+	car.findOneAndRemove({_id : req.body.id},function (error) {
+		/* body... */
+		// console.log(_id)
+		if(error){
+			res.send(error)
+		}
+		else{
+			res.send('item Deleted')
+		}
+	})
+})
 // The logIn post handling ..
 app.post("/logIn",function(req,res){
 	// Looking for the username ..
@@ -138,7 +153,8 @@ app.post("/add",function(req,res){
 		type: req.body.type,
 		color: req.body.color,
 		price: req.body.price,
-		image: req.body.image
+		image: req.body.image,
+		option :req.body.option
 	});
   carr.save(function(err, carr){
 		if (err){
@@ -147,6 +163,40 @@ app.post("/add",function(req,res){
 	});
 	res.end();
 });
+app.put("/addComment",function(req,res){
+	// var username = req.body.username;
+ //    var comment = req.body.comment;
+ //    var comments = {
+ //       username:username,
+ //        comment:comment
+ //    };
+ //    var newcomment = new car(comments);
+ //    newcomment.save()
+ //    .then(item=>{
+ //        res.send(newcomment)
+ //    })
+ //    .catch(err => {
+ //        res.status(400).send("unable to save to database")
+ //    })
+ console.log(req.body)
+ 		var newComment = req.body.comment;
+ 		var username = req.body.username;
+ 		console.log(newComment)
+ 		 car.update({
+         _id : req.body.id
+    }, {
+        $push: {
+            comment:{ newComment ,username}
+        }
+    }, function(err, updateComment) {
+        if (err) {
+            console.log('error')
+        } else {
+        	console.log('///////////',updateComment)
+            res.send(updateComment)
+        }
+    })
+})
 
 // Our wormHole ..
 // var port = process.env.PORT || 2000;

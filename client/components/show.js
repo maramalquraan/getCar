@@ -4,12 +4,47 @@ angular.module('get-car')
 
 .component('show', {
   bindings: {
-	car: "<"
+  car: "<",
+  userInfo :"<"
   },
 
-	templateUrl: `
-	client/templates/show.html
-	`
+
+  controller: function($http,$scope){
+      $scope.arrayUser=[];
+      $scope.arrayComment=[];
+
+    $scope.deleteCar=function(id){
+      // console.log('hiiiiii' , id)
+      $http({
+        method:"POST",
+        url: "/deleteCar",
+        data :JSON.stringify({ id : id})
+      })
+      .then(function succssesCallback(res){
+        console.log(res);
+      })
+    }
+$scope.addCommentbtn=function(id){
+      //console.log('hiiiiii' , id)
+      console.log($scope.comment , $scope.username)
+      $http({
+        method:"PUT",
+        url: "/addComment",
+        data :JSON.stringify({ comment:$scope.comment,username:$scope.username , id : id })
+      })
+      .then(function succssesCallback(res){
+        // $scope.arrayUser.push(res.data.username);
+        // $scope.arrayComment.push(res.data.comment);
+        console.log(res)
+      
+        //console.log($scope.array);
+      })
+    }
+  },
+    
+
+   
+  templateUrl: `client/templates/show.html`
 });
 
 /*

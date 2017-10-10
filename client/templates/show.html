@@ -1,6 +1,39 @@
+<html>
+<style>
+.centered {
+    position: absolute;
+    top: 20%;
+    left:30%;
+    /*bottom: 20%*/
+    transform: translate(-50%, -50%);
+    font-family: "Courier New";
+    font-size: 75px;
+    color: #ff0000;
+    font-style: italic;
+    -ms-transform: rotate(40deg); /* IE 9 */
+    -webkit-transform: rotate(40deg); /* Chrome, Safari, Opera */
+    transform: rotate(40deg);
+}
+</style>
 <div class = "show" class="container">
+
+<div>
   <img ng-src="{{$ctrl.car.image}}" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{$ctrl.car._id}}" style="width: 350px; height: 200px; background-color: white;">
+  <div class="centered">{{$ctrl.car.option}}</div>
+    <input type="text" name="username" ng-model="username">
+
+    <input type="text" name="comment" ng-model="comment">
+
+  <button ng-click="addCommentbtn($ctrl.car._id)">Add comment</button>
+
+
+  </div>
+  <div ng-repeat="comment in $ctrl.car.comment">
+  <div>username:{{comment.username}}</div>
+  <div>comment:{{comment.newComment}}</div>
+  </div>
   <br/>
+  <button type="button" ng-click="deleteCar($ctrl.car._id)">Remove</button>
 
   <div class="modal fade" id={{$ctrl.car._id}} role="dialog">
     <div class="modal-dialog">
