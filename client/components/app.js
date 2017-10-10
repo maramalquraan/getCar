@@ -37,6 +37,7 @@ angular.module('get-car')
 			  for (var i=0; i<response.data.length - 2; i++){
 				$scope.$ctrl.data.push(response.data[i].url)
 			  }
+			  	console.log($scope.$ctrl.data)
 				// this.data=response.data;  
 		}, 
 		function(response){
