@@ -28,15 +28,29 @@ angular.module('get-car')
 		// check line 66
 		this.userInfo;
 		this.data=[];
+		// this.name = [];
+		// this.price = [];
+		// this._id=[];
 
 		$http.get('/acc')
 		.then(
 			function(response){
 			// $scope.$ctrl.data = response.data[response.data.length - 1]
 				// $scope.$ctrl.data = [];
+				$scope.$ctrl.data=[];
+
+		// $scope.$ctrl.name = [];
+		// $scope.$ctrl.price = [];
+		// $scope.$ctrl._id = [];
 			  for (var i=0; i<response.data.length - 2; i++){
-				$scope.$ctrl.data.push(response.data[i].url)
+				//$scope.$ctrl.data.push(response.data[i].url)
+                // $scope.$ctrl._id.push(response.data[i]._id)
+				$scope.$ctrl.data.push(response.data[i])
+				 // $scope.$ctrl.name.push(response.data[i].name)
+				 // $scope.$ctrl.price.push(response.data[i].price)
+				 
 			  }
+			  
 				// this.data=response.data;  
 		}, 
 		function(response){
@@ -99,6 +113,7 @@ angular.module('get-car')
 			  for (var i=0; i<response.data.length - 2; i++){
 				$scope.$ctrl.searchTest.push(response.data[i])
 			  }
+
 		}, 
 		function(response){
 			console.log(response)

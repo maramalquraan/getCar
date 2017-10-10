@@ -6,6 +6,8 @@ var Schema = mongoose.Schema;
 // car schema
 var accSchema = new Schema({
     url: String,
+    name:String,
+    price:String
 });
 var accModel = mongoose.model('accModel',accSchema);
 // db.collection.createIndex( { url:1 }, { unique:true, dropDups:true } )

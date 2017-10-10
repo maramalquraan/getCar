@@ -9,9 +9,7 @@ angular.module('get-car')
 	},
 
 
-	templateUrl: `
-    client/templates/carAccessories.html
-	`
+	templateUrl: ` client/templates/carAccessories.html`
 
 });
 
