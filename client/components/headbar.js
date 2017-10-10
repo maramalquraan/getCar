@@ -34,6 +34,8 @@ angular.module('get-car')
 			$scope.$parent.logIn = null;
 			$scope.$parent.add = null;
 			$scope.$parent.about = null;
+			$scope.$parent.carAcc = null;
+
 		};
 		
 		$scope.add = function () {
@@ -42,6 +44,10 @@ angular.module('get-car')
 
 		$scope.abot = function () {
 			$scope.$parent.shabout();
+		};
+
+		$scope.acc = function () {
+			$scope.$parent.accc();
 		};
 
 		// the log out function ...
