@@ -24,18 +24,18 @@ angular.module('get-car')
         console.log(res);
       })
     }
-$scope.addCommentbtn=function(username){
+$scope.addCommentbtn=function(id){
       //console.log('hiiiiii' , id)
-      //console.log($scope.comment)
+      console.log($scope.comment , $scope.username)
       $http({
-        method:"POST",
+        method:"PUT",
         url: "/addComment",
-        data :JSON.stringify({ comment:$scope.comment,username:username })
+        data :JSON.stringify({ comment:$scope.comment,username:$scope.username , id : id })
       })
       .then(function succssesCallback(res){
-        $scope.arrayUser.push(res.data.username);
-        $scope.arrayComment.push(res.data.comment);
-        
+        // $scope.arrayUser.push(res.data.username);
+        // $scope.arrayComment.push(res.data.comment);
+        console.log(res)
       
         //console.log($scope.array);
       })

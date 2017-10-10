@@ -20,19 +20,18 @@
 <div>
   <img ng-src="{{$ctrl.car.image}}" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{$ctrl.car._id}}" style="width: 350px; height: 200px; background-color: white;">
   <div class="centered">{{$ctrl.car.option}}</div>
+    <input type="text" name="username" ng-model="username">
+
     <input type="text" name="comment" ng-model="comment">
 
-  <button ng-click="addCommentbtn($ctrl.car.username)">Add comment</button>
+  <button ng-click="addCommentbtn($ctrl.car._id)">Add comment</button>
 
 
   </div>
-  <div ng-repeat="user in arrayUser">
-  <div>username:{{user}}</div>
+  <div ng-repeat="comment in $ctrl.car.comment">
+  <div>username:{{comment.username}}</div>
+  <div>comment:{{comment.newComment}}</div>
   </div>
-  <div ng-repeat="comment in arrayComment">
-  <div>comment:{{comment}}</div>
-  </div>
-  <!-- <div>comment:{{x}}</div> -->
   <br/>
   <button type="button" ng-click="deleteCar($ctrl.car._id)">Remove</button>
 
