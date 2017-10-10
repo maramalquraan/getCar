@@ -103,14 +103,11 @@ app.get('/logout', function(req, res) {
 */
 	req.session.destroy(function() {
 		// Assign him as a quieter.
-		car.find({}, function(err,data){
-  	// Pushing the logged in variable with the data
-	data.push(logged ,userlogged);
-	// Sending data to the front end.
-	res.json(data);
-  });
-
+		logged = false;
+		userlogged = [];
+		res.end();
 	});
+
 });
 
 // Don't go Senpai ..
@@ -215,19 +212,18 @@ app.put("/addComment",function(req,res){
    /_________________________________________--"  
 */
 
-
+// acc.create({url:'https://img1.etsystatic.com/035/2/9636937/il_570xN.616006901_bl9y.jpg'},
+// 	{url:'http://www.costtag.com/images/sony-xplod-car-stereo_0.jpg'},
+// 	{url:"https://n4.sdlcdn.com/imgs/e/8/3/Intex-Car-Charger-Car-Mobile-SDL668144815-1-a0a02.png"},
+// 	{url:'https://n1.sdlcdn.com/imgs/e/t/q/230X258_sharpened/E-Lv-Car-Mobile-Holder-SDL020970228-1-4c6ab.jpg'},
+// 	{url:'http://imshopping.rediff.com/imgshop/300-300/shopping/pixs/26662/d/d0xybsaulsl1000_._autoright-5-in-1-car-cup-car-sunglass-car-mobile-holder-storage-cup-for-maruti-800.jpg'},
+// 	{url:'https://images-eu.ssl-images-amazon.com/images/G/31//img17/Auto/June17/carstore/cleaning_1.jpg'},
+// 	{url:'http://g-ecx.images-amazon.com/images/G/31/img17/Auto/June17/car-care.jpg'},
+// 	{url:'http://n1.sdlcdn.com/imgs/a/q/w/Red-12-Led-Brake-Light-SDL339315534-1-2625b.jpg'},
+// 	{url:'http://www.automotive-fleet.com/fc_images/news/m-triangles.jpg'},
+// 	{url:'https://cdn2.bigcommerce.com/server5800/c1d62/products/333/images/4905/steering_wheel_holster_mount_Toyota_Tacoma_2003_66195__76899.1390798392.1280.1280.jpg?c=2'})
 
 app.get('/acc', function(req, res) {
-	acc.create({url:'https://img1.etsystatic.com/035/2/9636937/il_570xN.616006901_bl9y.jpg'},
-	{url:'http://www.costtag.com/images/sony-xplod-car-stereo_0.jpg'},
-	{url:"https://n4.sdlcdn.com/imgs/e/8/3/Intex-Car-Charger-Car-Mobile-SDL668144815-1-a0a02.png"},
-	{url:'https://n1.sdlcdn.com/imgs/e/t/q/230X258_sharpened/E-Lv-Car-Mobile-Holder-SDL020970228-1-4c6ab.jpg'},
-	{url:'http://imshopping.rediff.com/imgshop/300-300/shopping/pixs/26662/d/d0xybsaulsl1000_._autoright-5-in-1-car-cup-car-sunglass-car-mobile-holder-storage-cup-for-maruti-800.jpg'},
-	{url:'https://images-eu.ssl-images-amazon.com/images/G/31//img17/Auto/June17/carstore/cleaning_1.jpg'},
-	{url:'http://g-ecx.images-amazon.com/images/G/31/img17/Auto/June17/car-care.jpg'},
-	{url:'http://n1.sdlcdn.com/imgs/a/q/w/Red-12-Led-Brake-Light-SDL339315534-1-2625b.jpg'},
-	{url:'http://www.automotive-fleet.com/fc_images/news/m-triangles.jpg'},
-	{url:'https://cdn2.bigcommerce.com/server5800/c1d62/products/333/images/4905/steering_wheel_holster_mount_Toyota_Tacoma_2003_66195__76899.1390798392.1280.1280.jpg?c=2'})
 
 		acc.find({}, function(err,data){
 			if(err){
@@ -246,7 +242,7 @@ app.get('/acc', function(req, res) {
 
 
 // Start listening ...
-app.listen(1000, function() {
+app.listen(5000, function() {
 
 console.log("	   *   '*");
 console.log("              *");
@@ -254,5 +250,5 @@ console.log("                   *");
 console.log("                           *");
 console.log("                  *");
 console.log("                         *");
-console.log(`you are now connected to:  ${1000}`);
+console.log(`you are now connected to:  ${5000}`);
 });
