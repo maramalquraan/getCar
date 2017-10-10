@@ -23,6 +23,7 @@ angular.module('get-car')
       
     $scope.add = function(){
       //collect data from user in one obj
+      
     $scope.car = {type : $scope.type , color : $scope.color , price : $scope.price , image : $scope.image.src, username: $scope.$ctrl.userin[0], phone: $scope.$ctrl.userin[1]};
 
     if($scope.car.type !== undefined && $scope.car.color !== undefined  && $scope.car.price !== undefined && $scope.car.image !== undefined){
