@@ -20,18 +20,38 @@ angular.module('get-car')
 		$scope.signUp;
 		$scope.add;
 		$scope.about;
+		$scope.carAcc;
 		// this one is from the server logged variable.
 		// check line 65.
 		this.loog = false;
 		// this on is for the logged in user information ..
 		// check line 66
 		this.userInfo;
+		this.data=[];
+
+		$http.get('/acc')
+		.then(
+			function(response){
+			// $scope.$ctrl.data = response.data[response.data.length - 1]
+				// $scope.$ctrl.data = [];
+			  for (var i=0; i<response.data.length - 2; i++){
+				$scope.$ctrl.data.push(response.data[i].url)
+			  }
+				// this.data=response.data;  
+		}, 
+		function(response){
+			console.log(response)
+		});
+
+		
+
 		// This function is connected with the headbar 
 		// and responsible of showing the log in template.
 		$scope.change = function(){
 			$scope.logIn = true
 			$scope.signUp = false
 			$scope.about = false
+			$scope.carAcc= false
 		};
 		
 		// This function is connected with the headbar 
@@ -40,12 +60,14 @@ angular.module('get-car')
 			$scope.signUp = true
 			$scope.logIn = false
 			$scope.about = false
+			$scope.carAcc= false
 		}
 
 		$scope.shabout = function(){
 			$scope.about = true
 			$scope.signUp = false
 			$scope.logIn = false
+			$scope.carAcc= false
 		}
 		
 		// This function is connected with the headbar 
@@ -54,6 +76,14 @@ angular.module('get-car')
 			$scope.add = true
 		}
 
+		$scope.accc = function(){
+			$scope.about = false
+			$scope.signUp = false
+			$scope.logIn = false
+			$scope.carAcc= true
+		}
+
+		
 		// this variable to save the data comming from the server.
 		this.searchTest = [];
 
@@ -73,6 +103,7 @@ angular.module('get-car')
 		function(response){
 			console.log(response)
 		});
+
 	},
 
 /* Take a rest, you earned it ...
