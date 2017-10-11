@@ -50,7 +50,7 @@ angular.module('get-car')
 				 // $scope.$ctrl.price.push(response.data[i].price)
 				 
 			  }
-			  
+
 				// this.data=response.data;  
 		}, 
 		function(response){
