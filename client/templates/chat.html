@@ -5,22 +5,24 @@
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
-      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 111%; }
       form input { border: 0; padding: 10px; width: 90%; margin-right: .5%;}
-       /*form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }*/
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px;}
+       form button { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      /*#btn { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px;height: 80px;}*/
       #messages { list-style-type: none; margin: 0; padding: 0;}
       #messages li {padding: 5px 10px;}
       #messages li:nth-child(odd) {background: #eee;}
     </style>
   </head>
   <body>
+     <div class="form-group input-group" >
     <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" placeholder="User Name ..."/>
-       <input id="d" autocomplete="off" placeholder="Message ..." /><button>user</button>
-    </form>
-
+    <form action="" class="form-horizantal">
+      <input id="m" autocomplete="off" placeholder="User Name ..." class="form-control"/>
+       <input id="d" autocomplete="off" placeholder="Message ..." class="form-control" /><br>
+        <button id="btn" class="form-control">user</button> 
+ </form>
+</div>
       <script src="/socket.io/socket.io.js"></script>
 <script>
   var socket = io();
