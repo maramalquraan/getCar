@@ -1,6 +1,8 @@
 <headbar loog = "$ctrl.loog"></headbar>
-<filters searchtt =$ctrl.searchTest ng-hide = "logIn || signUp || add || about"></filters>
+<filters searchtt =$ctrl.searchTest ng-hide = "logIn || signUp || add || carAcc || about"></filters>
 <log-ins ng-show = "logIn"></log-ins>
 <sign-up ng-show = "signUp"></sign-up>
 <add userin = $ctrl.userInfo ng-show = "add"></add>
+<accessories item="item" ng-repeat = "item in $ctrl.data track by $index"  ng-show = "carAcc"></accessories>
+ <!-- <accessories ng-show = "carAcc"> </accessories> -->
 <aboet ng-show = "about"></aboet>
