@@ -1,16 +1,18 @@
 <html>
 <style>
 .centered {
-    position: absolute;
-    top: 5%;
-    left:70%;
-    /*bottom: 20%*/
-    transform: translate(-50%, -50%);
-    font-family: sans-serif;
-    font-size: 40px;
-    color: #ff0000;
-    font-style: italic;
-    
+  position: absolute;
+  top: 5%;
+  left:70%;
+  /*bottom: 20%*/
+  transform: translate(-50%, -50%);
+  font-family: sans-serif;
+  font-size: 40px;
+  color: #ff0000 ;
+  font-style: italic;
+  -ms-transform: rotate(40deg); /* IE 9 */
+  -webkit-transform: rotate(40deg); /* Chrome, Safari, Opera */
+  transform: rotate(40deg);
 }
 </style>
 <div class = "show" class="container">
@@ -31,10 +33,7 @@
 
 
   </div>
-  <div ng-repeat="comment in $ctrl.car.comment">
 
-  <div>{{comment.username}} : {{comment.newComment}}</div>
- </div>
 
   <br/>
   
@@ -58,11 +57,20 @@
            <br/>
            <dt>Name: {{$ctrl.car.username}}</dt>
            <br/>
-
-           option: {{$ctrl.car.SaleOrRent}}
-           <br/>
+<!-- 
+           option: {{$ctrl.car.SaleOrRent}} -->
+        
 
            <dt>Phone Number: {{$ctrl.car.phone}}</dt>
+           <br>
+           <br>
+           <div class="panel panel-default" >
+            <div class="panel-heading">User Comments</div>
+              <div class="panel-body" ng-repeat="comment in $ctrl.car.comment">{{comment.username}}:  {{comment.newComment}}</div>
+              <div class="panel-body"></div>
+           
+            <!-- </div> -->
+           </div>
 
          </p>
 
