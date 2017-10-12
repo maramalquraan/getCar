@@ -7,7 +7,8 @@ var Schema = mongoose.Schema;
 var accSchema = new Schema({
     url: String,
     name:String,
-    price:String
+    price:String,
+    Phone_Number:String
 });
 var accModel = mongoose.model('accModel',accSchema);
 // db.collection.createIndex( { url:1 }, { unique:true, dropDups:true } )
