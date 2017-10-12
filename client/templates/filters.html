@@ -1,74 +1,100 @@
+
 <div class = "show" >
 	<show ng-repeat = "item in $ctrl.searchtt | filter: search | filter: searcch | filter: filterRange | orderBy:'':true"
 	car = "item">
-	
 </show>
-<!-- 
-<show ng-repeat = "item in $ctrl.searchtt | filter: search | filter: searcch | filter: filterRange | orderBy:'':true"
-	car = "item">
-	
-</show> -->
-
 </div>
+
+<br>
+
+
 <div class="filters" style="width: 250px;" ng-model = "search.$">
 	<div style="margin-top: 50px;">
-			<div class="form-group input-group" style="margin-left:30px;">					
+		<div class="form-group input-group" style="margin-left:30px;">					
 			<span class="input-group-addon" >
-					<span class="glyphicon glyphicon-search" ></span>
-				  </span>
-				  <input id="search" type="text" ng-model="search.type"  placeholder="Search ...">
-				</div>
+				<span class="glyphicon glyphicon-search" ></span>
+			</span>
+			<input id="search" type="text" ng-model="search.type"  placeholder="Search ...">
+		</div>
 	</div>
+
+<br>
+<br>
+
 
 	<div  class="subfilter"  ng-model = "$parent.searcch.$" >
-		<h3 class="text-centre"><strong style="margin-left:20px;font-size:30px;font-style:italic; font-family:Relation"> </strong></h3>
-		<div class="type" >
-		<h5><strong style="margin-left:40px;font-size:40px;font-style:italic; font-family:Relation">Type </strong></h5></br>
-		
-		<form style="margin-left: 20px;">
-				<input type="radio" name="type" ng-model="searcch.type" value = '' ><strong style="font-family:Relation; font-size:20px" > All</strong> <br/>
-			<div ng-repeat = "item in $ctrl.searchtt | filter : color | unique: 'type' " >
-					<input type="radio" name="type" ng-model="$parent.searcch.type" value={{item.type}}><strong style="font-family:Relation; font-size:20px;"> {{item.type}} </strong><br/>
-			</div>
-		</form>
-		<br/> 
-		<div style="text-align: center;">
-		<img src="client/images/BMW.png" style="width: 30px; height: 30px"> <img src="client/images/Mercedes.png" style="width: 30px; height: 30px"> <img src="client/images/Mitsubishi.png" style="width: 30px; height: 30px">
-		</div>
-		<br>
-	</div>
-		<br/>
-		<div class="price">
-		<h5><strong  style="margin-left:40px;font-size:40px; font-style:italic; font-family:Relation">Price </strong></h5></br>
-		
-		<form style="margin-left: 20px;" >
 
-				<strong style="font-family:Relation; font-size:20px"><input type="radio" name="price" ng-model="$parent.price" ng-click = "all()" vlaue = ""> All <br/></strong>
-			<strong style="font-family:Relation; font-size:20px"><input type="radio" name="price" ng-model="$parent.searcch.price" ng-click = "min()" > I'm poor <br/></strong>
-				<strong style="font-family:Relation; font-size:20px"><input type="radio" name="price" ng-model="$parent.searcch.price" ng-click = "mid()"> I have some $$ <br/></strong>
-					<strong style="font-family:Relation; font-size:20px"><input type="radio" name="price" ng-model="$parent.searcch.price" ng-click = "max()"> I'm Bill Gates</strong>
-		</form>
-		<br>
-		<div style="text-align: center;">
-			<img src="client/images/Money.png" style="width: 70px; height: 70px;">
+
+
+		<div class="dropdown" >
+			<button class="btn btn-info dropdown-toggle btn-lg" id="menu1" type="button" data-toggle="dropdown" style="width:175px;">Type
+				<span class="caret"></span></button>
+				<div class="dropdown-menu" role="menu" aria-labelledby="menu1">
+					<form style="margin-left: 20px;">
+						<input type="radio" name="type" ng-model="searcch.type" value = '' ><strong> All</strong> <br/>
+						<div ng-repeat = "item in $ctrl.searchtt | filter : color | unique: 'type' " >
+							<input type="radio" name="type" ng-model="$parent.searcch.type" value={{item.type}}><strong> {{item.type}} </strong><br/>
+						</div>
+					</form>
+				</div>
 		</div>
-		<br>
-	</div>
-		<br/>
-		<div class="color">
-		<h5><strong  style="margin-left:40px;font-size:40px;font-style:italic; font-family:Relation">Color </strong></h5></br>
-		
-		<form style="margin-left: 20px;">
-			<strong style="font-family:Relation; font-size:20px"><input type="radio" name="type" ng-model="searcch.color" value = ""> All <br/></strong>
-			<strong style="font-family:Relation; font-size:20px"><div ng-repeat="item in $ctrl.searchtt | filter: search | filter : type | unique: 'color'"></strong>
-			<strong style="font-family:Relation; font-size:20px">	<input type="radio" name="color" ng-model="$parent.searcch.color" value={{item.color}}> {{item.color}} <br/></strong>
-			</div>
-		</form>
-		<br>
-		<div style="text-align: center;">
-			<img src="client/images/Colors.png" style="width: 70px; height: 70px;">
+
+
+
+			<br>
+			<br>
+			
+
+			<div class="dropdown">
+				<button class="btn btn-danger dropdown-toggle btn-lg" id="menu2" type="button" data-toggle="dropdown"  style="width:175px">Color 
+					<span class="caret"></span></button>
+					<div class="dropdown-menu" role="menu" aria-labelledby="menu2">
+						<form style="margin-left: 20px;">
+							<strong><input type="radio" name="type" ng-model="searcch.color" value = ""> All <br/></strong>
+							<strong><div ng-repeat="item in $ctrl.searchtt | filter: search | filter : type | unique: 'color'"></strong>
+								<strong><input type="radio" name="color" ng-model="$parent.searcch.color" value={{item.color}}> {{item.color}} <br/></strong>
+						</div>
+					</form>
+				</div>
 		</div>
-		<br>
+
+
+
+				<br>
+				<br>
+			
+				
+
+
+				<div class="dropdown" >
+					<button class="btn btn-warning dropdown-toggle btn-lg" id="menu3" type="button" data-toggle="dropdown"  style="width:175px">Price
+						<span class="caret"></span></button>
+						<div class="dropdown-menu" role="menu" aria-labelledby="menu3">
+
+							<form style="margin-left: 20px;" >
+
+								<strong><input type="radio" name="price" ng-model="$parent.price" ng-click = "all()" vlaue = ""> All <br/></strong>
+
+
+								<strong><input type="radio" name="price" ng-model="$parent.searcch.price" ng-click = "min()" > 0-$10000 <br/></strong>
+
+
+
+								<strong><input type="radio" name="price" ng-model="$parent.searcch.price" ng-click = "mid()"> $10000-$30000 <br/></strong>
+
+
+								<strong><input type="radio" name="price" ng-model="$parent.searcch.price" ng-click = "max()">  $30000-$1000000 </strong>
+							</form>
+						</div>
+					</div>
+			</div> 
+			<!-- subfilter -->
+
+
+
 		</div>
-	</div>
-</div>
+		<!-- filter -->
+
+
+
+

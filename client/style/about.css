@@ -3,25 +3,29 @@
     filter: blur(90%); /* make all photos black and white */
     width: 100%; /* Set width to 100% */
     margin: auto;
+
 }
 
 .carousel-caption h3 {
     color: #fff !important;
+    font-family: serif;
 }
 
 @media (max-width: 600px) {
     .carousel-caption {
         display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+
     }
 }
 .bg-1 {
     background: #008080;
-    color: #bdbdbd;
+    color:white;
     height: 400px;
+    font-family: serif;
 }
-.bg-1 h3 {color: #fff;}
-.bg-1 p {font-style: italic;
-font-size: 20px}
+.bg-1 h3 {color: #A9F5F2; font-family: serif;}
+.bg-1 p {font-style: normal; color: #A9F5F2;
+font-size: 22px; font-family: serif;}
 
 #comp {
   background-color: #000080; /* Orange */
@@ -31,15 +35,37 @@ font-size: 20px}
 
   #qo {
     background-color: #20b2aa; /* Orange */
-      color: #ffffff;
+      color: white;
       height: 400px;
-      font-style: italic;
+      font-style: normal;
+      font-family: serif;
+
     }
     #hh{
-      font-size: 80px;
-      margin-top: 20px
+      font-size: 25px;
+      margin-top: 20px;
+      font-family: serif;
     }
     #bb{
-      font-size: 40px;
-      margin-top: 70px
+      font-size: 30px;
+      margin-top: 70px;
+      color: #A9F5F2;
+      font-family: serif;
     }
+    #hhh{
+      font-size: 25px;
+      margin-top: 20px;
+      font-family: serif;
+    }
+    #bbb{
+      font-size: 30px;
+      margin-top: 70px;
+      color: #A9F5F2;
+      font-family: serif;
+    }
+
+    
+
+@media {
+col-md-4{font-color:white; font-family: serif;}
+  }
