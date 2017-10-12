@@ -7,10 +7,14 @@ var user = require("./db/db.js"); // Our user database
 var car = require("./db/carDB.js") // Our car database
 var acc = require("./db/acc.js") // Our car database
 
+
 var bcrypt = require('bcrypt-nodejs');
 var Promise = require('bluebird');
 var app = express();
 var session = require("express-session");
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
 
 // those two lines are for payload size so you can upload large files ...
 app.use(bodyParser.json({limit: '5mb'}));
@@ -115,6 +119,7 @@ app.get('/logout', function(req, res) {
           \  \       \ |     | /        /
            \  \      \        /
 */
+
     req.session.destroy(function() {
         // Assign him as a quieter.
         logged = false;
@@ -204,8 +209,9 @@ app.put("/addComment",function(req,res){
         if (err) {
             console.log('error')
         } else {
-        	console.log('///////////',updateComment)
+        	// console.log('///////////',updateComment)
             res.send(updateComment)
+            
         }
     })
 })
@@ -227,24 +233,38 @@ var port = process.env.PORT || 1000;
    /_________________________________________--"  
 */
 
-
+// acc.create({url:'https://img1.etsystatic.com/035/2/9636937/il_570xN.616006901_bl9y.jpg'},
+// 	{url:'http://www.costtag.com/images/sony-xplod-car-stereo_0.jpg'},
+// 	{url:"https://n4.sdlcdn.com/imgs/e/8/3/Intex-Car-Charger-Car-Mobile-SDL668144815-1-a0a02.png"},
+// 	{url:'https://n1.sdlcdn.com/imgs/e/t/q/230X258_sharpened/E-Lv-Car-Mobile-Holder-SDL020970228-1-4c6ab.jpg'},
+// 	{url:'http://imshopping.rediff.com/imgshop/300-300/shopping/pixs/26662/d/d0xybsaulsl1000_._autoright-5-in-1-car-cup-car-sunglass-car-mobile-holder-storage-cup-for-maruti-800.jpg'},
+// 	{url:'https://images-eu.ssl-images-amazon.com/images/G/31//img17/Auto/June17/carstore/cleaning_1.jpg'},
+// 	{url:'http://g-ecx.images-amazon.com/images/G/31/img17/Auto/June17/car-care.jpg'},
+// 	{url:'http://n1.sdlcdn.com/imgs/a/q/w/Red-12-Led-Brake-Light-SDL339315534-1-2625b.jpg'},
+// 	{url:'http://www.automotive-fleet.com/fc_images/news/m-triangles.jpg'},
+// 	{url:'https://cdn2.bigcommerce.com/server5800/c1d62/products/333/images/4905/steering_wheel_holster_mount_Toyota_Tacoma_2003_66195__76899.1390798392.1280.1280.jpg?c=2'})
 
 app.get('/acc', function(req, res) {
-	acc.create({url:'https://img1.etsystatic.com/035/2/9636937/il_570xN.616006901_bl9y.jpg'},
-	{url:'http://www.costtag.com/images/sony-xplod-car-stereo_0.jpg'},
-	{url:"https://n4.sdlcdn.com/imgs/e/8/3/Intex-Car-Charger-Car-Mobile-SDL668144815-1-a0a02.png"},
-	{url:'https://n1.sdlcdn.com/imgs/e/t/q/230X258_sharpened/E-Lv-Car-Mobile-Holder-SDL020970228-1-4c6ab.jpg'},
-	{url:'http://imshopping.rediff.com/imgshop/300-300/shopping/pixs/26662/d/d0xybsaulsl1000_._autoright-5-in-1-car-cup-car-sunglass-car-mobile-holder-storage-cup-for-maruti-800.jpg'},
-	{url:'https://images-eu.ssl-images-amazon.com/images/G/31//img17/Auto/June17/carstore/cleaning_1.jpg'},
-	{url:'http://g-ecx.images-amazon.com/images/G/31/img17/Auto/June17/car-care.jpg'},
-	{url:'http://n1.sdlcdn.com/imgs/a/q/w/Red-12-Led-Brake-Light-SDL339315534-1-2625b.jpg'},
-	{url:'http://www.automotive-fleet.com/fc_images/news/m-triangles.jpg'},
-	{url:'https://cdn2.bigcommerce.com/server5800/c1d62/products/333/images/4905/steering_wheel_holster_mount_Toyota_Tacoma_2003_66195__76899.1390798392.1280.1280.jpg?c=2'})
 
 		acc.find({}, function(err,data){
+			if(data.length===0){
+					acc.create({url:'https://img1.etsystatic.com/035/2/9636937/il_570xN.616006901_bl9y.jpg',name:'leash flower',price:'$10',Phone_Number:'0789479394'},
+	{url:'http://www.costtag.com/images/sony-xplod-car-stereo_0.jpg',name:'car-stereo',price:'100$',Phone_Number:'0789479394'},
+	{url:"https://n4.sdlcdn.com/imgs/e/8/3/Intex-Car-Charger-Car-Mobile-SDL668144815-1-a0a02.png",name:'Car-Charger',price:'$5',Phone_Number:'0789479394'},
+	{url:'https://n1.sdlcdn.com/imgs/e/t/q/230X258_sharpened/E-Lv-Car-Mobile-Holder-SDL020970228-1-4c6ab.jpg',name:'Car-Mobile-Holder',price:'$10',Phone_Number:'0789479394'},
+	{url:'http://imshopping.rediff.com/imgshop/300-300/shopping/pixs/26662/d/d0xybsaulsl1000_._autoright-5-in-1-car-cup-car-sunglass-car-mobile-holder-storage-cup-for-maruti-800.jpg',name:'car-cup',price:'$15',Phone_Number:'0789479394'},
+	{url:'https://images-eu.ssl-images-amazon.com/images/G/31//img17/Auto/June17/carstore/cleaning_1.jpg',name:'car ahampoo',price:'$17',Phone_Number:'0789479394'},
+	{url:'http://g-ecx.images-amazon.com/images/G/31/img17/Auto/June17/car-care.jpg',name:'car-care',price:'$12',Phone_Number:'0789479394'},
+	{url:'http://n1.sdlcdn.com/imgs/a/q/w/Red-12-Led-Brake-Light-SDL339315534-1-2625b.jpg'},
+	{url:'http://www.automotive-fleet.com/fc_images/news/m-triangles.jpg',name:'triangles',price:'$10',Phone_Number:'0789479394'},
+	{url:'https://cdn2.bigcommerce.com/server5800/c1d62/products/333/images/4905/steering_wheel_holster_mount_Toyota_Tacoma_2003_66195__76899.1390798392.1280.1280.jpg?c=2',name:'steering_wheel_holster_mount',price:'$20',Phone_Number:'0789479394'})
+
+			}
 			if(err){
+				// console.log('///////////bidErr')
 				throw err;
 			}else{
+				// console.log('////////////',data)
 				 res.json(data)
 				// acc.remove( { } )
 
@@ -258,7 +278,9 @@ app.get('/acc', function(req, res) {
 
 
 // Start listening ...
-app.listen(port, function() {
+
+http.listen(8080, function() {
+
 
 console.log("	   *   '*");
 console.log("              *");
@@ -266,5 +288,20 @@ console.log("                   *");
 console.log("                           *");
 console.log("                  *");
 console.log("                         *");
-console.log(`you are now connected to:  ${port}`);
+console.log(`you are now connected to:  ${8080}`);
 });
+
+// io.on('connection', function(socket){
+//   socket.on('chat message', function(msg){
+//     console.log('message: ' + msg);
+//   });
+// });
+// io.on('connection', function(socket){
+//   socket.broadcast.emit('hi');
+// });
+    io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+  });
+});
+   

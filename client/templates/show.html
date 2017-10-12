@@ -10,16 +10,14 @@
     font-size: 40px;
     color: #ff0000;
     font-style: italic;
-    -ms-transform: rotate(40deg); /* IE 9 */
-    -webkit-transform: rotate(40deg); /* Chrome, Safari, Opera */
-    transform: rotate(40deg);
+    
 }
 </style>
 <div class = "show" class="container">
 
 <div>
-  <img ng-src="{{$ctrl.car.image}}" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{$ctrl.car._id}}" style="width: 350px; height: 200px; background-color: white;">
-  <br>
+
+  <img ng-src="{{$ctrl.car.image}}" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{$ctrl.car._id}}" style="width: 350px; height: 200px; background-color: white;box-shadow: 0 0 25px black;border-style: ridge;border-width: 5px;border-color: #9999ff;; background-color: white;">
   <div class="centered">{{$ctrl.car.option}}</div>
   <br>
   <center><button style="color: red" type="button" class="btn btn-default btn-sm" ng-click="deleteCar($ctrl.car._id)"><span class="glyphicon glyphicon-remove"></span>Remove Ads.</button></center>
@@ -34,8 +32,10 @@
 
   </div>
   <div ng-repeat="comment in $ctrl.car.comment">
+
   <div>{{comment.username}} : {{comment.newComment}}</div>
  </div>
+
   <br/>
   
 
@@ -50,23 +50,25 @@
            <img ng-src = {{$ctrl.car.image}} style="max-width: 100%;"></img></h4>
          </div>
          <div class="modal-body">
-          <p>{{$ctrl.car.type}}
+          <dt>name: {{$ctrl.car.type}}</dt>
            <br/>
-           color: {{$ctrl.car.color}} 
+          <dt> color: {{$ctrl.car.color}}</dt> 
            <br/>
-           price: {{$ctrl.car.price}}
+          <dt> price: {{$ctrl.car.price}}</dt>
            <br/>
-           Contact: <br/>
-           Name: {{$ctrl.car.username}}
+           <dt>Name: {{$ctrl.car.username}}</dt>
            <br/>
+
            option: {{$ctrl.car.SaleOrRent}}
            <br/>
-           Phone Number: {{$ctrl.car.phone}}
+
+           <dt>Phone Number: {{$ctrl.car.phone}}</dt>
+
          </p>
 
        </div>
        <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
