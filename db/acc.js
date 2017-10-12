@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
-var mongoURI = "mongodb://localHost/GTR";
-// var mongoURI = "mongodb://Doaa:4140063Dd@ds113795.mlab.com:13795/doaa";
+// var mongoURI = "mongodb://localHost/GTR";
+var mongoURI = 'mongodb://mazendb:4462097Mm@ds151544.mlab.com:51544/mazendb';
 var db = mongoose.connection;
 var Schema = mongoose.Schema;
 // car schema
@@ -12,8 +12,6 @@ var accSchema = new Schema({
 });
 var accModel = mongoose.model('accModel',accSchema);
 // db.collection.createIndex( { url:1 }, { unique:true, dropDups:true } )
-
-
 mongoose.connect(mongoURI,{useMongoClient: true});
 db.once("open", function(){
    console.log("connect to db");
