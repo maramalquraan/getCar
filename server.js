@@ -279,7 +279,7 @@ app.get('/acc', function(req, res) {
 
 // Start listening ...
 
-http.listen(8080, function() {
+http.listen(port, function() {
 
 
 console.log("	   *   '*");
@@ -288,7 +288,7 @@ console.log("                   *");
 console.log("                           *");
 console.log("                  *");
 console.log("                         *");
-console.log(`you are now connected to:  ${8080}`);
+console.log(`you are now connected to:  ${port}`);
 });
 
 // io.on('connection', function(socket){
