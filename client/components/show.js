@@ -21,7 +21,7 @@ angular.module('get-car')
         data :JSON.stringify({ id : id})
       })
       .then(function succssesCallback(res){
-        console.log(res);
+         window.location = "../../index.html"
       })
     }
 $scope.addCommentbtn=function(id){
@@ -33,8 +33,7 @@ $scope.addCommentbtn=function(id){
         data :JSON.stringify({ comment:$scope.comment,username:$scope.username , id : id })
       })
       .then(function succssesCallback(res){
-        // $scope.arrayUser.push(res.data.username);
-        // $scope.arrayComment.push(res.data.comment);
+         window.location = "../../index.html"
         console.log(res)
       
         //console.log($scope.array);
