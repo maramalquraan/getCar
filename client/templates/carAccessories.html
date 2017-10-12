@@ -4,13 +4,18 @@
   </div>
  -->
 <html>
-<p></p>
-<p></p>
-<p></p>
+<style >
+	body{
+
+		background-color:#0B3861
+
+	} 
+
+</style>
 <!-- {{$ctrl.item}} -->
 <div class = "show" class="container">
 <div>
-  <img ng-src="{{$ctrl.item.url}}" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{$ctrl.item._id}}" style="width: 350px; height: 200px; background-color: white;">
+  <img ng-src="{{$ctrl.item.url}}" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{$ctrl.item._id}}" style="width: 350px; height: 200px; background-color: white;box-shadow: 0 0 25px black;border-style: ridge;border-width: 5px;border-color: #9999ff;">
 </div>
   <div class="modal fade" id={{$ctrl.item._id}} role="dialog">
     <div class="modal-dialog">
@@ -20,20 +25,23 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"></button>
           <h4 class="modal-title">
-           <img ng-src = {{$ctrl.item.url}} style="max-width: 75%;"></img></h4>
+          	<center>
+           <img ng-src = {{$ctrl.item.url}} style="max-width: 50%;"></img></h4>
+           </center>
          </div>
          <div class="modal-body">
-          <p>{{$ctrl.item.name}}
+          <dt>Name: {{$ctrl.item.name}}</dt> 
            <br/>
-           color: {{$ctrl.item.price}} 
+           <dt>Price: {{$ctrl.item.price}}</dt> 
            <br/>
-           
+           <dt>PhoneNumber: {{$ctrl.item.Phone_Number}}</dt> 
+           <br/>
       
          </p>
 
        </div>
        <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
