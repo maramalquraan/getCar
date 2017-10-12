@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Chat Room</title>
+
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <!--  <style>
+      /** { margin: 0; padding: 0; box-sizing: border-box; }*/
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 111%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+       form button { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      /*#btn { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px;height: 80px;}*/
+    /*  #messages { list-style-type: none; margin: 0; padding: 0;width: 20%}
+      #messages li {padding: 5px 10px;}
+      #messages li:nth-child(odd) {background: #eee;}*/
+      ul {
+    border: 1px solid #ccc;
+    width: 200px;
+
+    /* Border radius for Chrome, Webkit and other good browsers */
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -border-radius: 10px;
+    border-radius: 10px;
+    list-style-type: none;
+}
+
+/* Only add border to bottom of <li> */
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc; 
+}
+
+/* Get rid of the last <li>'s bottom border to stop overlap with <ul>'s border */
+/* :last-child works in IE7+ */
+li:last-child {
+    border-bottom: 1px solid #ccc;*/
+}
+
+/* Get the number and float it right */
+    </style> -->
+  </head>
+  <body>
+    <!--  <div class="form-group  --><!-- input-group" > -->
+   <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <h1 id = "logo"><a href="/index.html" class = "navbar-header" calss= "active" ng-click="reset()" />getCar </h1>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="col-sm-10" style="width : 600px; margin-left: 250px; margin-top: 50px;">
+    <div class="jumbotron" style="margin-top: 50px">
+      <div  class="form-group" style="margin-top:-50px">
+        <h1 style="text-align: center;"> <label>CHAT ROOM</label> </h1>
+      </div>
+      <hr>
+      <form class="form-horizantal">
+        <div class="form-group input-group" >
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-user"></span>
+          </span>
+           <input type="text" ng-model="type"  class="form-control" id="m" placeholder="User..." required></input>
+        </div>
+
+        <div class="form-group input-group" >
+          <span class="input-group-addon">
+            <span class=" glyphicon glyphicon-envelope"></span>
+          </span>
+          <input type="text" ng-model="price"  class="form-control" id="d" placeholder="Massege ..."  required></input>
+        </div>
+       
+        <div class="form-group " >
+         <button class = "btn btn-primary " type="submit"     ng-click="add()"     class="form-control" id="add" style="width: 452px"> Submit </button>
+        </div>
+      </form>
+      <!-- <ul id="messages">
+      <li id="br"></li>
+    </ul> -->
+    <div class="container">
+  <h2>CHAT</h2>
+  <p>Make chatting</p>
+  <div class="panel-group">
+    <div class="panel panel-danger"id="messages">
+      
+     
+    </div>
+
+  </div>
+</div>
+
+    </div>
+
+
+
+  </div>
+</div>
+ 
+
+
+      <script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+</script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  $(function () {
+    var socket = io();
+    $('form').submit(function(){
+      socket.emit('chat message', $('#m').val());
+      $('#m').val('');
+
+      $('form').submit(function(){
+      socket.emit('chat message', $('#d').val());
+      $('#d').val('');
+      return false;
+    });
+  });
+</script>
+  <script>
+  $(function () {
+    var socket = io();
+    $('form').submit(function(){
+    $('#messages').append($('<div class="panel-heading"></div>'))
+
+      socket.emit('chat message', $('#m').val());
+      $('#m').val('');
+        socket.emit('chat message', $('#d').val());
+      $('#d').val('');
+      return false;
+    });
+
+    socket.on('chat message', function(msg){
+        $('#messages').append($('<div class="panel-body">').text(msg));
+      
+
+}); 
+
+  });
+$
+</script>
+
+  </body>
+</html>
