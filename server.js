@@ -27,7 +27,21 @@ var logged = false;
 
 // This variable will hold the information of the logged in user.
 // check line 111 ..
-var userlogged = []
+var userlogged = [];
+
+// app.post("/search", urlencodedParser, function(req, res){
+// 	var options={
+// 		url:"https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/"+ req.body.type 
+// 		+ "/modelyear/" + req.body.year + "?format=json,",
+// 		method: "GET",
+// 		headers: {
+// 			 'User-Agent': 'mmmmmmmm',
+//     		'Accept': 'application/json',
+//     		'Accept-Charset': 'utf-8',
+// 		}
+
+// 	}
+// })
 
 // This get will start at the beginning to bring all the data from the cars database
 app.get('/data',function(req, res){
@@ -83,8 +97,8 @@ app.post("/logIn",function(req,res){
 
 // The logOut handling get.
 app.get('/logout', function(req, res) {
-/*	 Eliminate the session ..
-	 hasta la vista BB ...
+/*     Eliminate the session ..
+     hasta la vista BB ...
                         ______
                       <((((((\\\
                       /      . }\
@@ -101,17 +115,15 @@ app.get('/logout', function(req, res) {
           \  \       \ |     | /        /
            \  \      \        /
 */
-	req.session.destroy(function() {
-		// Assign him as a quieter.
-		car.find({}, function(err,data){
-  	// Pushing the logged in variable with the data
-	data.push(logged ,userlogged);
-	// Sending data to the front end.
-	res.json(data);
-  });
+    req.session.destroy(function() {
+        // Assign him as a quieter.
+        logged = false;
+        userlogged = [];
+        res.end();
+    });
 
-	});
 });
+
 
 // Don't go Senpai ..
 // ༼ つ ಥ_ಥ ༽つ
@@ -199,7 +211,7 @@ app.put("/addComment",function(req,res){
 })
 
 // Our wormHole ..
-// var port = process.env.PORT || 2000;
+var port = process.env.PORT || 1000;
 /*			 
         ________________________________         
        /                                "-_          
@@ -246,7 +258,7 @@ app.get('/acc', function(req, res) {
 
 
 // Start listening ...
-app.listen(1000, function() {
+app.listen(port, function() {
 
 console.log("	   *   '*");
 console.log("              *");
@@ -254,5 +266,5 @@ console.log("                   *");
 console.log("                           *");
 console.log("                  *");
 console.log("                         *");
-console.log(`you are now connected to:  ${1000}`);
+console.log(`you are now connected to:  ${port}`);
 });

@@ -2,12 +2,12 @@
 <style>
 .centered {
     position: absolute;
-    top: 20%;
-    left:30%;
+    top: 5%;
+    left:70%;
     /*bottom: 20%*/
     transform: translate(-50%, -50%);
-    font-family: "Courier New";
-    font-size: 75px;
+    font-family: sans-serif;
+    font-size: 40px;
     color: #ff0000;
     font-style: italic;
     -ms-transform: rotate(40deg); /* IE 9 */
@@ -19,21 +19,25 @@
 
 <div>
   <img ng-src="{{$ctrl.car.image}}" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{$ctrl.car._id}}" style="width: 350px; height: 200px; background-color: white;">
+  <br>
   <div class="centered">{{$ctrl.car.option}}</div>
-    <input type="text" name="username" ng-model="username">
-
-    <input type="text" name="comment" ng-model="comment">
-
-  <button ng-click="addCommentbtn($ctrl.car._id)">Add comment</button>
+  <br>
+  <center><button style="color: red" type="button" class="btn btn-default btn-sm" ng-click="deleteCar($ctrl.car._id)"><span class="glyphicon glyphicon-remove"></span>Remove Ads.</button></center>
+  <br>
+  <br>
+    <input type="text" name="username" class="form-control" id="pwd" ng-model="username" placeholder="username">
+    <br>
+    <input type="text" name="comment" class="form-control" id="pwd" ng-model="comment" placeholder="comment ..">
+    <br>
+  <button class="btn btn-success btn-sm" ng-click="addCommentbtn($ctrl.car._id)">Add</button>
 
 
   </div>
   <div ng-repeat="comment in $ctrl.car.comment">
-  <div>username:{{comment.username}}</div>
-  <div>comment:{{comment.newComment}}</div>
-  </div>
+  <div>{{comment.username}} : {{comment.newComment}}</div>
+ </div>
   <br/>
-  <button type="button" ng-click="deleteCar($ctrl.car._id)">Remove</button>
+  
 
   <div class="modal fade" id={{$ctrl.car._id}} role="dialog">
     <div class="modal-dialog">
@@ -55,7 +59,9 @@
            Contact: <br/>
            Name: {{$ctrl.car.username}}
            <br/>
-           Number Phone: {{$ctrl.car.phone}}
+           option: {{$ctrl.car.SaleOrRent}}
+           <br/>
+           Phone Number: {{$ctrl.car.phone}}
          </p>
 
        </div>

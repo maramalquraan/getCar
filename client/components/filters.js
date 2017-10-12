@@ -40,6 +40,7 @@ angular.module('get-car')
       $scope.rangeMin = 30000;
       $scope.rangeMax = 1000000;
     };
+
 	},
 
 	templateUrl: `

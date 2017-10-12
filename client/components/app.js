@@ -21,6 +21,7 @@ angular.module('get-car')
 		$scope.add;
 		$scope.about;
 		$scope.carAcc;
+		
 		// this one is from the server logged variable.
 		// check line 65.
 		this.loog = false;
@@ -52,6 +53,7 @@ angular.module('get-car')
 			$scope.signUp = false
 			$scope.about = false
 			$scope.carAcc= false
+			
 		};
 		
 		// This function is connected with the headbar 
